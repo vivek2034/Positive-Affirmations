@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galactic Positivity</title>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        font-family: 'Segoe UI', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        color: #fff;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    .aurora {
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(0,255,255,0.15), transparent 70%),
+              radial-gradient(ellipse at 30% 30%, rgba(0,128,255,0.1), transparent 80%),
+              radial-gradient(ellipse at 70% 70%, rgba(128,0,255,0.1), transparent 80%);
+  animation: auroraMove 30s ease-in-out infinite alternate;
+  z-index: 0;
+  mix-blend-mode: screen;
+  filter: blur(60px);
+}
+@keyframes auroraMove {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(5%, -5%) rotate(20deg);
+  }
+  100% {
+    transform: translate(-5%, 5%) rotate(-20deg);
+  }
+}
+
+
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: #ffffff;
+        animation: fadeIn 2s ease-in;
+        text-shadow: 0 0 20px #ffffffaa, 0 0 40px #ffffff66, 0 0 60px #ffffff44;
+    }
+
+    #affirmation {
+        font-size: 1.8rem;
+        padding: 0 20px;
+        max-width: 700px;
+        margin: 20px 0;
+        min-height: 80px;
+        opacity: 0;
+        transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+        transform: scale(0.9);
+        text-shadow: 0 0 10px #ffffff88, 0 0 20px #ffffff44;
+    }
+
+    button {
+        padding: 14px 30px;
+        background: linear-gradient(45deg, #6dd5ed, #2193b0);
+        border: none;
+        border-radius: 30px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 0 20px #ffffff88, 0 0 40px #ffffff44;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background: linear-gradient(45deg, #2193b0, #6dd5ed);
+        box-shadow: 0 0 40px #ffffffaa, 0 0 60px #ffffff66;
+        filter: brightness(1.3);
+    }
+
+    .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0.8;
+        animation: twinkle 3s infinite;
+        box-shadow: 0 0 15px #ffffff88, 0 0 30px #ffffff44;
+    }
+
+    @keyframes fadeIn {
+        0% { opacity: 0; transform: translateY(-20px); }
+        100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.2; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.5); }
+    }
+
+    @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    #affirmation.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+  </style>
+</head>
+<body>
+  <div class="aurora"></div>
+
+
+  <h1>Cosmic Affirmations</h1>
+  <div id="affirmation">Click below to receive your starry boost.</div>
+  <button onclick="showAffirmation()">Give Me Positivity</button>
+
+  <script>
+    const affirmations = [
+      "You are a shining star in the universe.",
+      "Every cell in your body is full of light and energy.",
+      "You are infinite and limitless.",
+      "You matter. The universe is better with you in it.",
+      "You radiate peace, calm, and love.",
+      "Stars shine brighter when you're around.",
+      "You’re aligned with the energy of abundance.",
+      "You are made of stardust and strength.",
+      "The universe flows through you effortlessly.",
+      "Your soul glows with purpose and light.",
+      "The universe is always working in my favor",
+"I trust that the universe provides exactly what I need",
+"I am aligned with the energy of abundance the universe offers",
+"The universe is guiding me toward my highest good",
+"I am in perfect harmony with the flow of the universe",
+"I trust the timing of the universe and let go of impatience",
+"I am a magnet for the positive energy the universe sends me",
+"The universe is constantly sending me signs of guidance",
+"I am a co-creator with the universe",
+"I believe that the universe has a plan for me",
+"I am open to receiving the miracles the universe is sending me",
+"The universe supports my dreams and aspirations",
+"I trust the universe to lead me to the right opportunities",
+"I am in tune with the vibrations of the universe",
+"I trust that the universe has my back",
+"I am a child of the universe, worthy of love and abundance",
+"I am grateful for the universe's infinite blessings",
+"The universe fills me with peace, love, and joy",
+"I am at one with the energy of the universe",
+"I am in the right place at the right time, as the universe intended",
+"I am worthy of all the desires my heart craves",
+"I attract abundance effortlessly into my life",
+"Every thought I think brings me closer to my dreams",
+"I am a magnet for limitless opportunities",
+"I am open to receiving all the blessings the universe has for me",
+"I trust that my dreams are already on their way to me",
+"I have the power to create my reality",
+"I am aligned with the energy of abundance and success",
+"I am ready to receive the manifestations I’ve been dreaming of",
+"The universe is always conspiring in my favor",
+"I am worthy of manifesting my desires into reality",
+"I attract positive energy and wealth into my life",
+"I am in perfect alignment with my goals and aspirations",
+"My manifestations are coming to me effortlessly",
+"I trust the universe to bring me exactly what I need",
+"I am a powerful creator, and I create the life I desire",
+"I am deeply connected to the energy of the cosmos",
+"The universe is vast, and I am part of its magnificent flow",
+"I trust the cosmic rhythm of life and its unfolding path",
+"I am one with the stars, the sky, and the universe",
+"I align myself with the infinite power of the cosmos",
+"The universe's energy flows through me and guides me",
+"I am guided by the stars and the cosmic wisdom",
+"I trust the universe to reveal the path to my dreams",
+"The cosmos speaks to me through signs and synchronicities",
+"I am open to the infinite possibilities the universe offers",
+"I am in harmony with the cosmic energies surrounding me",
+"I am part of something much larger than myself",
+"The universe unfolds in perfect timing, and I trust it",
+"I attract cosmic energy that aligns with my highest good",
+"I am a cosmic being, connected to the infinite",
+"I am open to receiving the abundance the universe has to offer",
+"Every thought I think creates my reality",
+"I am aligned with my deepest desires and dreams",
+"I am worthy of all the wealth and success that is coming to me",
+"My life is a reflection of the thoughts I choose to think",
+"I trust in the process of manifestation and know it is working",
+"I attract only what is aligned with my highest good",
+"I believe in my ability to create my reality",
+"I am grateful for everything I have already manifested",
+"I am always attracting opportunities that lead me closer to my dreams",
+"I release any limiting beliefs that no longer serve me",
+"My desires are already on their way to me",
+"I am worthy of experiencing my greatest dreams coming true",
+"I am a unique expression of the universe, filled with infinite potential",
+"I trust that the stars are guiding me toward my purpose",
+"I am aligned with the cosmic energy of abundance and love",
+"The universe supports me in everything I do",
+"I am constantly evolving with the universe's energy",
+"My soul is connected to the infinite wisdom of the cosmos",
+"I am at peace with the cosmic flow of my life",
+"The universe has a divine plan for me, and I trust it",
+"I am a radiant being, connected to the cosmic light",
+"I am in perfect harmony with the energies of the universe",
+"The universe is always communicating with me through signs and synchronicities",
+"I am worthy of all the abundance I am attracting into my life",
+"I am grateful for all the blessings that are already on their way",
+"I have the power to manifest my desires with ease",
+"I trust in the process and divine timing of my manifestations",
+"I am constantly attracting experiences that align with my highest good",
+"My desires are becoming my reality right now",
+"I am deserving of all the great things that are coming into my life",
+"I release all doubts and fully trust in the manifestation process",
+"I believe in my dreams, and I know they are on their way",
+"Everything I desire is already within my reach",
+"I attract what I am, and I am full of positivity and light",
+"I am one with the infinite energy of the cosmos",
+"I am connected to the stars and the energy of the universe",
+"The universe speaks to me in whispers of wisdom and light",
+"I am a radiant being of light, and the universe supports me",
+"I trust the cosmic flow of my life, even when I can’t see the full picture",
+"I am open to the vast potential of the universe",
+"I trust in the wisdom and energy of the cosmos to guide me",
+"The universe is filled with limitless possibilities, and I embrace them all",
+"I am a powerful being, connected to the energy of the universe",
+"The universe’s energy flows through me, bringing peace, love, and joy",
+"I am open to receiving cosmic wisdom that will guide me forward",
+"I am in perfect alignment with the universe’s plan for me",
+
+
+    ];
+
+    function showAffirmation() {
+  const box = document.getElementById('affirmation');
+  const sound = document.getElementById('clickSound');
+
+  // Play sound
+  sound.currentTime = 0;
+  sound.play();
+
+  // Remove class to trigger fade-out
+  box.classList.remove("show");
+
+  // Wait a moment to allow fade-out, then update and fade in
+  setTimeout(() => {
+    const random = affirmations[Math.floor(Math.random() * affirmations.length)];
+    box.textContent = random;
+
+    // Trigger reflow to ensure animation restarts
+    void box.offsetWidth;
+
+    // Add class to fade in
+    box.classList.add("show");
+  }, 300);
+}
+
+
+    function createStar() {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      star.style.left = Math.random() * 100 + 'vw';
+      star.style.top = Math.random() * 100 + 'vh';
+      star.style.animationDuration = 2 + Math.random() * 3 + 's';
+      document.body.appendChild(star);
+      setTimeout(() => star.remove(), 5000);
+    }
+
+    setInterval(createStar, 150);
+  </script>
+  <audio id="clickSound" src="elevator-chimenotification-ding-recreation-287560.mp3" preload="auto"></audio>
+
+
+</body>
+</html>
